@@ -719,9 +719,9 @@ static struct lutType *read_tag_lutType(struct mem_source *src, struct tag_index
 	clut_offset = offset + 52 + lut->num_input_table_entries * in_chan * entry_size;
 	for (i = 0; i < clut_size * out_chan; i+=3) {
 		if (type == LUT8_TYPE) {
-			lut->clut_table[i*3+0] =  read_u8(src, clut_offset + i*entry_size + 0) / 255.0f;
-			lut->clut_table[i*3+1] =  read_u8(src, clut_offset + i*entry_size + 1) / 255.0f;
-			lut->clut_table[i*3+2] =  read_u8(src, clut_offset + i*entry_size + 2) / 255.0f;
+			lut->clut_table[i+0] =  read_u8(src, clut_offset + i*entry_size + 0) / 255.0f;
+			lut->clut_table[i+1] =  read_u8(src, clut_offset + i*entry_size + 1) / 255.0f;
+			lut->clut_table[i+2] =  read_u8(src, clut_offset + i*entry_size + 2) / 255.0f;
 		} else {
 			lut->clut_table[i+0] =  read_u16(src, clut_offset + i*entry_size + 0) / 65535.0f;
 			lut->clut_table[i+1] =  read_u16(src, clut_offset + i*entry_size + 2) / 65535.0f;
